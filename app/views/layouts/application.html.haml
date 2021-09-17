@@ -9,8 +9,10 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
     %body
-    - if flash.present?
-      .flash
-        - flash.each do |key, value|
-          %div{:class => key}= value
-    = yield
+      %header.header
+        %p.header_pagetitle Time Limit
+      - if flash.present?
+        .flash
+          - flash.each do |key, value|
+            %div{:class => key}= value
+      = yield
