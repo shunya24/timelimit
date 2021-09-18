@@ -8,11 +8,19 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %body
-      %header.header
-        %p.header_pagetitle Time Limit
-      - if flash.present?
-        .flash
-          - flash.each do |key, value|
-            %div{:class => key}= value
-      = yield
+  %body
+    %header.header
+      %p.header_pagetitle Time Limit
+      -if user_signed_in?
+        .dropdown
+          = image_tag 'images.png', class: 'avatar dropbtn'
+          .dropdown-content
+            = link_to 'プロフィール'
+            = link_to 'ログアウト'
+      - else
+        = link_to 'ログイン', class: 'loginbtn'
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
+    = yield
