@@ -18,7 +18,7 @@
             = link_to 'プロフィール'
             = link_to 'ログアウト'
       - else
-        = link_to 'ログイン', class: 'loginbtn'
+        = link_to 'ログイン', new_user_session_path, class: 'loginbtn'
     - if flash.present?
       .flash
         - flash.each do |key, value|
