@@ -10,11 +10,11 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
   %body
     %header.header
-      %p.header_pagetitle Time Limit
+      %p.header_pageTitle Time Limit
       -if user_signed_in?
         .dropdown
-          = image_tag 'images.png', class: 'avatar dropbtn'
-          .dropdown-content
+          = image_tag 'images.png', class: 'avatar dropBtn'
+          .dropdown_content
             = link_to 'プロフィール'
             = link_to 'ログアウト'
       - else
