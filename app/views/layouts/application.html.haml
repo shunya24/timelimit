@@ -10,15 +10,16 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
   %body
     %header.header
-      %p.header_pageTitle Time Limit
+      %p.header_pageTitle
+        = link_to 'Time Limit', root_path
       -if user_signed_in?
         .dropdown
-          = image_tag 'images.png', class: 'avatar dropBtn'
+          = image_tag 'images.png', class: 'header_avatar dropBtn'
           .dropdown_content
             = link_to 'プロフィール'
-            = link_to 'ログアウト'
+            = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
       - else
-        = link_to 'ログイン', new_user_session_path, class: 'loginbtn'
+        = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
     - if flash.present?
       .flash
         - flash.each do |key, value|
