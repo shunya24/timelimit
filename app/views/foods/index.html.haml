@@ -1,4 +1,17 @@
 .container
+  - @foods.each do |food|
+    .card
+      .card_image
+        = image_tag "no_food.png"
+      .card_contents
+        .card_name 
+          %p= food.name
+        .card_limitDay
+          %p= food.limit
+        .card_timeLimit 
+          %p= food.limit
+        .card_count
+          %p= food.count
   .card
     .card_image
       = image_tag "food.jpg"
@@ -10,19 +23,7 @@
       .card_timeLimit 
         あと2日
       .card_count
-        5
-  .card
-    .card_image
-      = image_tag "food.jpg"
-    .card_contents
-      .card_name 
-        食べ物
-      .card_limitDay
-        2021年10/3
-      .card_timeLimit 
-        あと2日
-      .card_count
-        5
+        3
   .card
     .card_image
       = image_tag "food.jpg"
