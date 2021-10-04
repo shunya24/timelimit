@@ -9,18 +9,18 @@
     %div
       = f.text_field :name
     %div
-      = f.label :content, '内容'
+      = f.label :content, 'メモ'
     %div
       = f.text_area :content
     %div.hidden_box
-      = f.label '賞味期限', {for: '1'}
       = f.radio_button :あ, :賞味期限, {id: '1', checked: "checked"}
-      = f.label '消費期限', {for: '2'}
+      = f.label '賞味期限', {for: '1'}
       = f.radio_button :あ, :消費期限, {id: '2'}
+      = f.label '消費期限', {for: '2'}
       %div
-        = f.label '管理しない', {for: '3'}
         = f.radio_button :あ, :管理しない, {id: '3'}
-      
+        = f.label '管理しない', {for: '3'}
+
       %div.hidden_show
         = f.date_select :limit, {use_month_numbers: true}
     %div
