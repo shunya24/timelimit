@@ -13,12 +13,12 @@
     %div
       = f.text_area :content
     %div.hidden_box
-      = f.radio_button :あ, :賞味期限, {id: '1', checked: "checked"}
+      = f.radio_button :management, :賞味期限, {id: '1', checked: "checked"}
       = f.label '賞味期限', {for: '1'}
-      = f.radio_button :あ, :消費期限, {id: '2'}
+      = f.radio_button :management, :消費期限, {id: '2'}
       = f.label '消費期限', {for: '2'}
       %div
-        = f.radio_button :あ, :管理しない, {id: '3'}
+        = f.radio_button :management, :管理しない, {id: '3'}
         = f.label '管理しない', {for: '3'}
 
       %div.hidden_show
