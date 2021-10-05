@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_09_23_063420) do
     t.integer "user_id", null: false
     t.string "name", null: false
     t.text "content"
+    t.integer "management"
     t.date "limit"
     t.integer "count"
     t.datetime "created_at", precision: 6, null: false
