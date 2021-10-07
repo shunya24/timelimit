@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_09_23_063420) do
 
   create_table "foods", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.string "image"
     t.string "name", null: false
     t.text "content"
     t.integer "management"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2021_09_23_063420) do
     t.integer "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

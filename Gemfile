@@ -28,6 +28,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'hamlit'
 gem 'devise'
+gem 'carrierwave', '~> 2.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

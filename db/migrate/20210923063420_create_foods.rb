@@ -1,7 +1,8 @@
 class CreateFoods < ActiveRecord::Migration[6.0]
   def change
     create_table :foods do |t|
-      t.references :user, null: false
+      # t.references :user, null: false
+      t.string :image
       t.string :name, null: false
       t.text :content
       t.integer :management

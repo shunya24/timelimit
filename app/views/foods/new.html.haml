@@ -1,9 +1,9 @@
 .container
   = form_with(model: @food, local: true) do |f|
     %div
-      = f.label :eyecatch, '画像'
+      = f.label :image, '画像'
     %div
-      = f.file_field :eyecatch
+      = f.file_field :image
     %div
       = f.label :name, '食材名'
     %div
