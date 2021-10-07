@@ -14,8 +14,9 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     if @food.save
-      redirect_to food_path(@food)
+      redirect_to food_path(@food), notice: '保存できました'
     else
+      flash.now[:error] = '保存に失敗しました'
       render :new
     end
   end
