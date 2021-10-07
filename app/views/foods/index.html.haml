@@ -3,7 +3,10 @@
     = link_to food_path(food) do
       .card
         .card_image
-          = image_tag "no_food.png"
+          - if food.image?
+            = image_tag food.image_url
+          - else
+            = image_tag "no_food.png"
         .card_contents
           .card_name 
             %p= food.name
