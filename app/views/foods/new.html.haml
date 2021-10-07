@@ -1,4 +1,7 @@
 .container
+  %ul
+    - @food.errors.full_messages.each do |message|
+      %li= message
   = form_with(model: @food, local: true) do |f|
     %div
       = f.label :image, '画像'
