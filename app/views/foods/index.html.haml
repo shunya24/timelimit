@@ -1,6 +1,6 @@
 .container
   - @foods.each do |food|
-    = link_to food_path(food) do
+    = link_to edit_food_path(food) do
       .card
         .card_image
           - if food.image?
@@ -11,9 +11,9 @@
           .card_name 
             %p= food.name
           .card_limitDay
-            %p= food.limit
+            %p= food.limit_day
           .card_timeLimit
-            %p= food.limit
+            %p= food.deadline
           .card_count
             %p= food.count
   .card
