@@ -31,3 +31,5 @@
     %div
       = f.number_field :count
     = f.submit '保存'
+    %div
+    = link_to "削除する", food_path(@food), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
