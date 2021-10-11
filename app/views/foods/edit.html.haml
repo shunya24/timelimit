@@ -29,7 +29,7 @@
     %div
       = f.label :count, '数'
     %div
-      = f.number_field :count
+      = f.number_field :count, {min: 1, max: 9999}
     = f.submit '保存'
     %div
     = link_to "削除する", food_path(@food), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
