@@ -3,6 +3,10 @@
   background-color: #8AC542;
   justify-content: space-between;
   padding: 15px 12px;
+  position: fixed;
+  width: 100%;
+  height: auto;
+  z-index: 1;
 
   a {
     color: white;

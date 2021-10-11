@@ -38,7 +38,7 @@ class FoodsController < ApplicationController
   def destroy
     food = Food.find(params[:id])
     food.destroy!
-    redirect_to root_path, notice: "削除できました"
+    redirect_to root_path, notice: '削除できました'
   end
 
   private
