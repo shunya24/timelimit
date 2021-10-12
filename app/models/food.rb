@@ -31,6 +31,8 @@ class Food < ApplicationRecord
       "あと#{days}日"
     elsif years < 0
       '期限切れ'
+    elsif years == 1 && days < 0
+      "あと#{days + 365}日"
     elsif years > 0 && days < 0
       "あと#{years - 1}年#{days + 365}日"
     elsif years > 0 && days == 0
