@@ -1,10 +1,8 @@
 class FoodsController < ApplicationController
+  before_action :set_food, only: [:edit, :update]
+
   def index
     @foods = Food.all
-  end
-
-  def show
-    @food = Food.find(params[:id])
   end
 
   def new
@@ -26,7 +24,6 @@ class FoodsController < ApplicationController
   end
 
   def update
-    @food = Food.find(params[:id])
     if @food.update(food_params)
       redirect_to root_path(@food), notice: '更新できました'
     else
@@ -44,5 +41,9 @@ class FoodsController < ApplicationController
   private
   def food_params
     params.require(:food).permit(:image, :name, :content, :management, :limit, :count)
+  end
+
+  def set_food
+    @food = Food.find(params[:id])
   end
 end
