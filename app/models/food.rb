@@ -1,6 +1,5 @@
 class Food < ApplicationRecord
-  validates :name, presence: true
-  validates :name, {length: {maximum:11} }
+  validates :name, length: { minimum: 1, maximum: 11 }
 
   mount_uploader :image, ImageUploader
 
