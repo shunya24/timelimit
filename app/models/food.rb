@@ -3,6 +3,8 @@ class Food < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  belongs_to :user
+
   enum management: {賞味期限:1, 消費期限:2, 管理しない:3}
   def limit_day
     limit_day = "#{limit.year - 2000}年#{limit.month}/#{limit.day}"
