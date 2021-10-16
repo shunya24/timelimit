@@ -1,0 +1,2 @@
+class Sopping < ApplicationRecord
+end
