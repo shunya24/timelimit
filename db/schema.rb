@@ -25,12 +25,13 @@ ActiveRecord::Schema.define(version: 2021_10_16_142011) do
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
-  create_table "soppings", force: :cascade do |t|
+  create_table "shoppings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "name", null: false
+    t.integer "count"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_soppings_on_user_id"
+    t.index ["user_id"], name: "index_shoppings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
