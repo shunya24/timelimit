@@ -1,0 +1,8 @@
+.container
+  - @shoppings.each do |shopping|
+    .card
+      = shopping.name
+      = shopping.count
+  = link_to new_shopping_path do
+    .float_btn
+      %i.fa.fa-plus
