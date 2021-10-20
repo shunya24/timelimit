@@ -9,13 +9,13 @@
             = image_tag "no_food.png"
         .card_contents
           .card_name 
-            %p= food.name
+            = food.name
           .card_limitDay
-            %p= food.limit_day
+            = food.limit_day
           .card_timeLimit
-            %p= food.deadline
+            = food.deadline
           .card_count
-            %p= food.count
+            = food.count
   = link_to new_food_path do
     .float_btn
       %i.fa.fa-plus
