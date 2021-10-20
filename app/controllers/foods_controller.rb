@@ -21,7 +21,6 @@ class FoodsController < ApplicationController
   end
 
   def edit
-    @food = Food.find(params[:id])
   end
 
   def update
