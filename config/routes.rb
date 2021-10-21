@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   root to: 'foods#index'
 
   resources :foods, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :shoppings, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :shoppings, only: [:index, :new, :create, :edit, :update, :destroy] do
+
+    resource :check
+  end
 end

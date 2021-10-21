@@ -1,4 +1,4 @@
 class Check < ApplicationRecord
-  belongs_to :user, dependent: :destroy
-  belongs_to :shopping, dependent: :destroy
+  belongs_to :user
+  belongs_to :shopping
 end

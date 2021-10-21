@@ -1,4 +1,4 @@
 class Shopping < ApplicationRecord
   belongs_to :user
-  belongs_to :check, dependent: :destroy
+  has_one :check, dependent: :destroy
 end
