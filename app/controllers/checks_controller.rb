@@ -3,7 +3,7 @@ class ChecksController < ApplicationController
 
   def create
     shopping = Shopping.find(params[:shopping_id])
-    shopping.check.create!(user_id: current_user.id)
-    redirect_to shopping_path(shopping)
+    shopping.checks.create!(user_id: current_user.id)
+    redirect_to shoppings_path(shopping)
   end
 end

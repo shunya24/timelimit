@@ -4,11 +4,11 @@ class ShoppingsController < ApplicationController
   end
 
   def new
-    @shopping = current_user.shopping.build
+    @shopping = current_user.shoppings.build
   end
 
   def create
-    @shopping = current_user.shopping.build(shopping_params)
+    @shopping = current_user.shoppings.build(shopping_params)
     if @shopping.save
       redirect_to shoppings_path(@shopping), notice: '保存できました'
     else
