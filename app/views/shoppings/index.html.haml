@@ -1,8 +1,11 @@
 .container
   - @shoppings.each do |shopping|
     .card
-      = shopping.name
-      = shopping.count
+      
+      %input{class: 'check', name:"todo", type:"checkbox", value:"todo"}
+      %label{class:'line','data-content':"#{shopping.name}"}
+        = shopping.name
+        = shopping.count
   = link_to new_shopping_path do
     .float_btn
       %i.fa.fa-plus
