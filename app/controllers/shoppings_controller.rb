@@ -17,6 +17,20 @@ class ShoppingsController < ApplicationController
     end
   end
 
+  def edit
+    @shopping = Shopping.find(params[:id])
+  end
+
+  def update
+    @shopping = Shopping.find(params[:id])
+    if @shopping.update(shopping_params)
+      redirect_to shoppings_path(@shopping), notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit
+    end
+  end
+
   private
   def shopping_params
     params.require(:shopping).permit(:name, :count)

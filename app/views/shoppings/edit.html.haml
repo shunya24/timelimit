@@ -1,0 +1,15 @@
+.container
+  %ul
+    - @shopping.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: @shopping, local: true) do |f|
+    %div
+      = f.label :name, '商品名'
+    %div
+      = f.text_field :name
+    %div
+      = f.label :count, '数'
+    %div
+      = f.number_field :count, {min: 1, max: 9999}
+    = f.submit '保存'
+    = link_to "削除する", shopping_path(@shopping), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
