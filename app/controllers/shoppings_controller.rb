@@ -31,6 +31,12 @@ class ShoppingsController < ApplicationController
     end
   end
 
+  def destroy
+    shopping = Shopping.find(params[:id])
+    shopping.destroy!
+    redirect_to shoppings_path, notice: '削除できました'
+  end
+
   private
   def shopping_params
     params.require(:shopping).permit(:name, :count)
