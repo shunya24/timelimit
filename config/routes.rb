@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :foods, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :shoppings, only: [:index, :new, :create, :edit, :update, :destroy] do
 
-    resource :check, only: [:create]
+    resource :check, only: [:create, :destroy]
   end
 end

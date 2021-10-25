@@ -57,7 +57,6 @@ $green: #06842c;
 
 .check[type="checkbox"] {
   position: relative;
-  // top: 5px;
   vertical-align: middle;
   width: 1.5em;
   height: 1.5em;
@@ -69,8 +68,8 @@ $green: #06842c;
     position: absolute;
     content: '';
     display: block;
-    top: 2px;
-    left: 7px;
+    top: 50px;
+    left: 50px;
     width: 8px;
     height: 14px;
     border-style: solid;
