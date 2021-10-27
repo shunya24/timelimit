@@ -39,6 +39,6 @@ class ShoppingsController < ApplicationController
 
   private
   def shopping_params
-    params.require(:shopping).permit(:name, :count)
+    params.require(:shopping).permit(:name)
   end
 end
