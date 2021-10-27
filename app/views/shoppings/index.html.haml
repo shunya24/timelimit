@@ -1,26 +1,23 @@
 .container
   - @shoppings.each do |shopping|
     .card
-      - if current_user.has_check?(shopping)
-        = link_to shopping_check_path(shopping), data: {method: 'delete'} do
-          %input{class: 'check', name:"todo", type:"checkbox", value:"todo", checked_value:"1", unchecked_value:"0"}
+      - if current_user&.has_check?(shopping)
+        %input{class: 'check', type:"checkbox"}
+        = link_to shopping_check_path(shopping), data: {method: 'delete', type:"checkbox"} do
           %label{class:'line','data-content':"#{shopping.name}"}
           = shopping.name
-          = shopping.count
       - else
-        = link_to shopping_check_path(shopping), data: {method: 'post'} do
-          %input{class: 'check', name:"todo", type:"checkbox", value:"todo", checked_value:"1", unchecked_value:"0"}
+        = link_to shopping_check_path(shopping), data: {method: 'post', type:"checkbox"} do
+          %input{class: 'check', name:"todo", value:"todo", type:"checkbox"}
           %label{class:'line','data-content':"#{shopping.name}"}
           = shopping.name
-          = shopping.count
       .ss
         = button_to edit_shopping_path(shopping), {method: 'get'} do
           %i.fa.fa-edit 編集
         = button_to shopping_path(shopping), {method: 'delete', data: {confirm: '本当に削除してもよろしいですか？'}} do
           %i.fa.fa-trash 削除
-  shoppingのcount消そかな<br>
   チェックしたらデータベースに登録されてチェック状態にして打ち消し線を入れたい<br>
-  いいね機能みたいに画像でチェック状態にするのあり？
+  後で修正
   = link_to new_shopping_path do
     .float_btn
       %i.fa.fa-plus
