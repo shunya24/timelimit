@@ -8,14 +8,12 @@
           - else
             = image_tag "no_food.png"
         .card_contents
-          .card_name 
+          .card_name
             = food.name
           .card_limitDay
+            %i.fa.fa-clock-o
             = food.limit_day
           .card_timeLimit
             = food.deadline
           .card_count
             = food.count
-  = link_to new_food_path do
-    .float_btn
-      %i.fa.fa-plus
