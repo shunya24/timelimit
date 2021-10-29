@@ -23,22 +23,26 @@
   &_name {
     font-size: 20px;
     width: 100%;
+    padding: 8px 0;
     border-bottom: 2px dashed rgb(141, 138, 138);
   }
 
   &_limitDay {
     position: absolute;
+    font-size: 14px;
     bottom: 0;
   }
 
   &_timeLimit {
     position: absolute;
-    left: 35%;
+    font-size: 14px;
+    left: 40%;
     bottom: 0;
   }
 
   &_count {
     position: absolute;
+    font-size: 14px;
     right: 0;
     bottom: 0;
   }

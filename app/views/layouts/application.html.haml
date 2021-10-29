@@ -13,8 +13,6 @@
     %header.header
       %p.header_pageTitle
         = link_to 'Time Limit', root_path
-        = link_to '買い物リスト', shoppings_path
-        ゴミ箱
       -if user_signed_in?
         .dropdown
           = image_tag 'images.png', class: 'header_avatar dropBtn'
@@ -27,4 +25,17 @@
       .flash
         - flash.each do |key, value|
           %div{:class => key}= value
+    %footer.footer
+      %i.fa.fa-trash-o 削除
+      = link_to shoppings_path do
+        %i.fa.fa-cart-plus 買い物リスト
+      - if current_page?(root_path)
+        = link_to new_food_path do
+          %p
+            %i.fa.fa-plus
+      - else
+        = link_to new_shopping_path do
+          %p
+            %i.fa.fa-plus
     = yield
+
