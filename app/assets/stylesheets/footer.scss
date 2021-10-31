@@ -1,0 +1,31 @@
+.footer {
+  font-size: 30px;
+  // background-color: white;
+  background-color: #8AC542;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding-top: 5px;
+  z-index: 1;
+
+  div {
+    font-size: 15px;
+  }
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  bottom: 0;
+  padding: 0;
+}
+
+.color {
+  color: white;
+}
+
+.fa {
+  text-align: center;
+  font-size: 15px;
+}
