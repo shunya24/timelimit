@@ -2,17 +2,20 @@
   - @shoppings.each do |shopping|
     .card
       - if current_user&.has_check?(shopping)
-        %input{class: 'check', type:"checkbox"}
-        = link_to shopping_check_path(shopping), data: {method: 'delete', type:"checkbox"} do
-          %label{class:'line','data-content':"#{shopping.name}"}
+        .card_imagea
+          = link_to shopping_check_path(shopping), data: {method: 'delete'} do
+            = image_tag 'checkbox.png'
+        .card_namea.textdecoration_linethrough
           = shopping.name
+          .a
+            = button_to shopping_path(shopping), {method: 'delete'} do
+              %i.fa.fa-trash 削除
       - else
-        = link_to shopping_check_path(shopping), data: {method: 'post', type:"checkbox"} do
-          %input{class: 'check', name:"todo", value:"todo", type:"checkbox"}
-          %label{class:'line','data-content':"#{shopping.name}"}
+        .card_imagea
+          = link_to shopping_check_path(shopping), data: {method: 'post'} do
+            = image_tag 'box.png'
+        .card_namea
           = shopping.name
-      .ss
-        = button_to edit_shopping_path(shopping), {method: 'get'} do
-          %i.fa.fa-edit 編集
-        = button_to shopping_path(shopping), {method: 'delete', data: {confirm: '本当に削除してもよろしいですか？'}} do
-          %i.fa.fa-trash 削除
+          .a
+            = button_to shopping_path(shopping), {method: 'delete'} do
+              %i.fa.fa-trash 削除
