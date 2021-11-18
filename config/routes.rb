@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
     resource :check, only: [:create, :destroy]
   end
+
+  resource :profile, only: [:show, :edit, :update]
 end

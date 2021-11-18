@@ -1,0 +1,12 @@
+.container.profile
+  .profile_user
+    .profile_user_image
+      = image_tag 'user.png'
+    .profile_user_basicInfo
+      .profile_user_name
+        .name
+          名前
+        .profilePage_user_actionButton
+          = link_to '編集', edit_profile_path
+      .profilePage_user_id
+        ID  123456789
