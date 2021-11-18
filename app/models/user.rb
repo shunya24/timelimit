@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :shoppings, dependent: :destroy
   has_many :checks, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   def has_check?(shopping)
     checks.exists?(shopping_id: shopping.id)
