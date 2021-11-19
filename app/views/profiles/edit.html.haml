@@ -1,0 +1,14 @@
+.container
+  %ul
+    - @profile.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    %div
+      = f.label :nickname, '名前'
+    %div
+      = f.text_field :nickname, class: 'text'
+    %div
+      = f.label :my_id, 'ID'
+    %div
+      = f.number_field :my_id
+    = f.submit '保存'
