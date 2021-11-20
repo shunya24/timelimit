@@ -1,0 +1,37 @@
+$image_size: 56px;
+
+.profile {
+  
+  &_user {
+    display: flex;
+    margin-top: 20px;
+
+    &_image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 16px;
+
+      img {
+        width: $image_size;
+        height: $image_size;
+        border-radius: 100%;
+      }
+    }
+
+    &_name {
+      display: flex;
+      margin-bottom: 8px;
+
+      .name {
+        font-size: 18px;
+        font-weight: bold;
+        margin-right: 8px;
+      }
+    }
+
+    &_id {
+      font-size: 12px;
+    }
+  }
+}
