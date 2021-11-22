@@ -5,8 +5,9 @@
     .profile_user_basicInfo
       .profile_user_name
         .name
-          = @profile.nickname
-        .profilePage_user_actionButton
-          = link_to '編集', edit_profile_path
-      .profilePage_user_id
-        ID = @profile.my_id
+          = @profile&.nickname
+        .profile_user_actionButton
+          = link_to '変更', edit_profile_path
+      .profile_user_id
+        ID
+        = @profile&.my_id
