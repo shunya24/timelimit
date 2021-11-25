@@ -11,6 +11,9 @@ ja:
         name: '食材名'
       shopping:
         name: '商品名'
+      profile:
+        nickname: '名前'
+        my_id: 'ID'
   date:
     abbr_day_names:
     - 日
