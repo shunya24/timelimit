@@ -5,9 +5,15 @@
     .profile_user_basicInfo
       .profile_user_name
         .name
-          = @profile&.nickname
+          - if @profile&.nickname?
+            = @profile.nickname
+          - else
+            見入力
         .profile_user_actionButton
           = link_to '変更', edit_profile_path
       .profile_user_id
         ID
-        = @profile&.my_id
+        - if @profile&.my_id?
+          = @profile.my_id
+        - else
+          見入力
