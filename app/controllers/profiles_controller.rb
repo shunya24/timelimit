@@ -3,10 +3,15 @@ class ProfilesController < ApplicationController
   
   def show
     @profile = current_user.profile
+    if @profile&.nickname?
+      @profile = current_user.profile
+    else
+      redirect_to edit_profile_path
+    end
   end
 
   def edit
-    @profile = current_user.build_profile
+    @profile = current_user.profile || current_user.build_profile
   end
 
   def update
