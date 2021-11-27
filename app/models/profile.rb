@@ -1,5 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  mount_uploader :avatar, ImageUploader
+
 
   validates :nickname, presence: true
   validates :nickname, length: {maximum: 13}
