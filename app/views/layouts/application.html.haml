@@ -15,7 +15,7 @@
         = link_to 'Time Limit', root_path
       -if user_signed_in?
         .dropdown
-          = image_tag 'user.png', class: 'header_avatar dropBtn'
+          = image_tag current_user.avatar_image, class: 'header_avatar dropBtn'
           .dropdown_content
             = link_to 'プロフィール', profile_path
             = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete', confirm: '本当にログアウトしますか？' }

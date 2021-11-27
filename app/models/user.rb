@@ -12,4 +12,12 @@ class User < ApplicationRecord
   def has_check?(shopping)
     checks.exists?(shopping_id: shopping.id)
   end
+
+  def avatar_image
+    if profile&.avatar?
+      profile.avatar_url
+    else
+      'user.png'
+    end
+  end
 end
