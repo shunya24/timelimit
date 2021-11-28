@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = current_user.profile
+    @profile = current_user.profile || current_user.build_profile
     @profile.assign_attributes(profile_params)
     if @profile.save
       redirect_to profile_path, notice: 'プロフィール更新'

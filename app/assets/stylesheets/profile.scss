@@ -34,7 +34,6 @@ $image_size: 56px;
       display: flex;
 
       .name {
-        font-size: 18px;
         font-weight: bold;
         margin-right: 8px;
       }
@@ -42,6 +41,11 @@ $image_size: 56px;
 
     &_id {
       font-size: 15px;
+      padding-top: 5px;
     }
   }
+}
+
+.notes {
+  font-size: 10px;
 }

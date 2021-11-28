@@ -8,5 +8,5 @@ class Profile < ApplicationRecord
 
   validates :my_id, presence: true
   validates :my_id, {uniqueness: true}
-  validates :my_id, length: {maximum: 13}
+  validates :my_id, length: {maximum: 10}
 end
