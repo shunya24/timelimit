@@ -13,7 +13,11 @@
       = f.text_field :nickname, class: 'text'
     %div
       = f.label :my_id, 'ID'
-      半角の数字で入力してください
+      
     %div
       = f.number_field :my_id
+    %div.notes
+      ※半角の数字で入力してください
+    %div.notes
+      ※一桁目は１〜９で入力してください
     = f.submit '保存'
