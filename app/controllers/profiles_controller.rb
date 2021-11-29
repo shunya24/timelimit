@@ -25,6 +25,12 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def search
+    @profile = Profile.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "show"
+  end
+
   private
   def profile_params
     params.require(:profile).permit(:avatar, :nickname, :my_id)
