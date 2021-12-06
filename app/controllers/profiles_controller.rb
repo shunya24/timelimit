@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  
+  before_action :set_q, only: [:show, :search]
+
   def show
     @profile = current_user.profile
     if @profile&.nickname?
@@ -26,12 +27,23 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @profile = Profile.search(params[:keyword])
-    @keyword = params[:keyword]
-    render "show"
+    @results = @q.result
+    @profile = 
+    if params[:q][:'my_id_eq'] == ""
+      redirect_to profile_path, notice: "検索キーワードがありません。"
+    elsif @results.present?
+      @results
+    else
+      redirect_to profile_path, notice: '存在しません'
+    end
   end
 
   private
+
+  def set_q
+    @q = Profile.ransack(params[:q])
+  end
+
   def profile_params
     params.require(:profile).permit(:avatar, :nickname, :my_id)
   end
