@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resource :check, only: [:create, :destroy]
   end
 
-  resource :profile, only: [:show, :edit, :update]
-
-  get 'search' => 'profiles#search'
+  resource :profile, only: [:show, :edit, :update] do
+    collection do
+      get 'search'
+    end
+  end
 end

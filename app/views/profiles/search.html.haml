@@ -1,0 +1,14 @@
+.container
+  - @results.each do |results|
+    .profile_user
+      .profile_user_image
+        = image_tag results.avatar_url || 'user.png'
+      .profile_user_basicInfo
+        .profile_user_name
+          .name
+            = results&.nickname
+          .profile_user_actionButton
+            = link_to 'フォローにする', root_path
+        .profile_user_id
+          ID
+          = results&.my_id

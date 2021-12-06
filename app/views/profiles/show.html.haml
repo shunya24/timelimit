@@ -1,20 +1,17 @@
 .container.profile
   .profile_user
     .profile_user_image
-      = image_tag current_user.avatar_image
+      = image_tag @profile.avatar_url || 'user.png'
     .profile_user_basicInfo
       .profile_user_name
         .name
-          = @profile.nickname
+          = @profile&.nickname
         .profile_user_actionButton
           = link_to '変更', edit_profile_path
       .profile_user_id
         ID
-        = @profile.my_id
-    %div.search_form_with
-      = form_with(url: search_path, method: :get, local: true) do |f|
-        = f.text_field :keyword, value: @keyword
-        = f.submit "検索"
-    %div.profile_list
-      - @profile.each do |profile|
-        = profile.my_id
+        = @profile&.my_id
+  ユーザー検索
+  = search_form_for @q, url: search_profile_path do |f|
+    = f.number_field :my_id_eq
+    = f.submit "検索"

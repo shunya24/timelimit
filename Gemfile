@@ -29,6 +29,7 @@ gem 'binding_of_caller'
 gem 'hamlit'
 gem 'devise'
 gem 'carrierwave', '~> 2.0'
+gem 'ransack'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
