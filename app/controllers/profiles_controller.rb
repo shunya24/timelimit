@@ -28,11 +28,13 @@ class ProfilesController < ApplicationController
 
   def search
     @results = @q.result
-    @profile = 
+
     if params[:q][:'my_id_eq'] == ""
       redirect_to profile_path, notice: "検索キーワードがありません。"
+    elsif params[:q][:'my_id_eq'].to_i == current_user.profile.my_id
+      redirect_to profile_path
     elsif @results.present?
-      @results
+      redirect_to account_path(@results.first.user)
     else
       redirect_to profile_path, notice: '存在しません'
     end

@@ -16,4 +16,8 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
+  resources :accounts, only: [:show] do
+    resources :follows, only: [:create, :destroy]
+  end
 end
