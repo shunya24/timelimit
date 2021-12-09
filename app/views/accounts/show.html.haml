@@ -1,0 +1,16 @@
+.container.profile
+  .profile_user
+    .profile_user_image
+      = image_tag @user.profile.avatar_url || 'user.png'
+    .profile_user_basicInfo
+      .profile_user_name
+        .name
+          = @user.profile.nickname
+        .profile_user_actionButton
+          - if current_user&.has_followed?(@user)
+            =link_to 'フォロー中', account_follow_path(@user), data: {method: 'delete'}
+          - else
+            = link_to 'フォローする', account_follows_path(@user), data: {method: 'post'}
+      .profile_user_id
+        ID
+        = @user.profile.my_id
