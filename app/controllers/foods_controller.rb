@@ -1,9 +1,15 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:edit, :update]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
 
   def index
-    @foods = Food.all
+    followings = current_user.followings.pluck(:id)
+    followers = current_user.followers.pluck(:id)
+    mutual_follow = followings & followers
+    mutual_follow.push(current_user.id)
+    # プロフィールの検索の下あたりに共有してる
+
+    @foods = Food.where(user_id: mutual_follow).order("updated_at DESC")
   end
 
   def new

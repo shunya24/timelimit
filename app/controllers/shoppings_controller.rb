@@ -2,7 +2,7 @@ class ShoppingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @shoppings = Shopping.all
+    @shoppings = Shopping.where(user_id: current_user)
   end
 
   def new

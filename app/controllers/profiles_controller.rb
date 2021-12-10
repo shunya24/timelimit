@@ -9,6 +9,10 @@ class ProfilesController < ApplicationController
     else
       redirect_to edit_profile_path
     end
+    followings = current_user.followings.pluck(:id)
+    followers = current_user.followers.pluck(:id)
+    @mutual_follow = followings & followers
+    @user = User.where(id: @mutual_follow)
   end
 
   def edit
@@ -27,8 +31,6 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @results = @q.result
-
     if params[:q][:'my_id_eq'] == ""
       redirect_to profile_path, notice: "検索キーワードがありません。"
     elsif params[:q][:'my_id_eq'].to_i == current_user.profile.my_id
@@ -44,6 +46,7 @@ class ProfilesController < ApplicationController
 
   def set_q
     @q = Profile.ransack(params[:q])
+    @results = @q.result
   end
 
   def profile_params

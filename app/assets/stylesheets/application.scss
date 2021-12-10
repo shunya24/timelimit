@@ -14,7 +14,7 @@
 *= require_self
 */
 @import 'header';
-@import 'card';
+@import 'food';
 @import 'form';
 @import 'flash';
 @import 'footer';
@@ -28,9 +28,10 @@
 }
 
 .container {
-  padding: 3px;
-  padding-top: 80px;
-  padding-bottom: 58px;
+  // padding: 3px;
+  // padding-top: 80px;
+  // padding-bottom: 58px;
+  padding:80px 3px 58px 3px ;
 }
 
 body {
