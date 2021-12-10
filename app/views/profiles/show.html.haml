@@ -11,7 +11,22 @@
       .profile_user_id
         ID
         = @profile&.my_id
-  ユーザー検索
-  = search_form_for @q, url: search_profile_path do |f|
-    = f.number_field :my_id_eq
-    = f.submit "検索"
+  .search_user
+    ユーザー検索
+    = search_form_for @q, url: search_profile_path do |f|
+      = f.number_field :my_id_eq
+      = f.submit "検索"
+  .share_list
+    共有しているユーザー
+    - @user.each do |user|
+      = link_to account_path(@results.first.user) do
+        .profile_user
+          .profile_user_image
+            = image_tag user.profile.avatar_url || 'user.png'
+          .profile_user_basicInfo
+            .profile_user_name
+              .name
+                = user.profile.nickname
+            .profile_user_id
+              ID
+              = user.profile.my_id
