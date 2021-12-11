@@ -28,21 +28,29 @@
     %footer.footer
       %ul
         = link_to root_path do
-          %i.fa.fa-home.color
+          %i.fa.fa-home.color{class: "#{add_active_food_class(params[:controller])}"}
             %div
               トップ
         %i.fa.fa-trash-o.color
           %div
             削除
         = link_to shoppings_path do
-          %i.fa.fa-cart-plus.color
+          %i.fa.fa-cart-plus.color{class: "#{add_active_shopping_class(params[:controller])}"}
             %div
               買い物リスト
         - if current_page?(root_path)
           = link_to new_food_path do
             %i.fa.fa-plus.color
-        - else
+              %div
+                投稿
+        - elsif current_page?(shoppings_path)
           = link_to new_shopping_path do
             %i.fa.fa-plus.color
+              %div
+                投稿
+        - else
+          %i.fa.fa-plus.color
+            %div
+              投稿
     = yield
 
