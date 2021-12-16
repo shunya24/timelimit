@@ -1,21 +1,10 @@
 .container
   - @shoppings.each do |shopping|
     .card
-      - if current_user&.has_check?(shopping)
-        .card_imagea
-          = link_to shopping_check_path(shopping), data: {method: 'delete'} do
-            = image_tag 'checkbox.png'
-        .card_namea.textdecoration_linethrough
-          = shopping.name
-          .a
-            = button_to shopping_path(shopping), {method: 'delete'} do
-              %i.fa.fa-trash 削除
-      - else
-        .card_imagea
-          = link_to shopping_check_path(shopping), data: {method: 'post'} do
-            = image_tag 'box.png'
-        .card_namea
-          = shopping.name
-          .a
-            = button_to shopping_path(shopping), {method: 'delete'} do
-              %i.fa.fa-trash 削除
+      .asa
+        = render 'checks/check', shopping: shopping
+      .card_namea
+        = shopping.name
+        .a
+          = button_to shopping_path(shopping), {method: 'delete'} do
+            %i.fa.fa-trash 削除

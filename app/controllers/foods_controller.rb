@@ -7,7 +7,6 @@ class FoodsController < ApplicationController
     followers = current_user.followers.pluck(:id)
     mutual_follow = followings & followers
     mutual_follow.push(current_user.id)
-    # プロフィールの検索の下あたりに共有してる
 
     @foods = Food.where(user_id: mutual_follow).order("updated_at DESC")
   end

@@ -38,12 +38,12 @@
           %i.fa.fa-cart-plus.color{class: "#{add_active_shopping_class(params[:controller])}"}
             %div
               買い物リスト
-        - if current_page?(root_path)
+        - if params[:controller] == "foods"
           = link_to new_food_path do
             %i.fa.fa-plus.color
               %div
                 投稿
-        - elsif current_page?(shoppings_path)
+        - elsif params[:controller] == "shoppings"
           = link_to new_shopping_path do
             %i.fa.fa-plus.color
               %div
