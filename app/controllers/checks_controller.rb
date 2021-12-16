@@ -1,17 +1,20 @@
 class ChecksController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_shopping
 
   def create
-    shopping = Shopping.find(params[:shopping_id])
-    shopping.checks.create!(user_id: current_user.id)
-    redirect_to shoppings_path(shopping)
+    @check = Check.new(user_id: current_user.id, shopping_id:@shopping.id)
+    @check.save
+
   end
 
   def destroy
-    shopping = Shopping.find(params[:shopping_id])
-    check = shopping.checks.find_by!(user_id: current_user.id)
+    @check = Check.find_by(user_id: current_user.id, shopping_id:@shopping.id)
+    @check.destroy!
+  end
 
-    check.destroy!
-    redirect_to shoppings_path(shopping)
+  private
+  def set_shopping
+    @shopping = Shopping.find(params[:shopping_id])
   end
 end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :shoppings, dependent: :destroy
   has_many :checks, dependent: :destroy
+  has_many :check_shoppings, through: :checks, source: :shopping
   has_one :profile, dependent: :destroy
 
 
