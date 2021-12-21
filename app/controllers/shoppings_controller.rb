@@ -2,27 +2,23 @@ class ShoppingsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @shoppings = Shopping.where(user_id: current_user)
+    @shoppings = Shopping.where(user_id: current_user).order(created_at: :desc)
   end
 
   def new
-    @shopping = current_user.shoppings.build
   end
 
   def create
     @shopping = current_user.shoppings.build(shopping_params)
     if @shopping.save
-      redirect_to shoppings_path(@shopping), notice: '保存できました'
     else
-      flash.now[:error] = '保存できませんでした'
-      render :new
+      redirect_to shoppings_path(@shopping), notice: '１文字から１１文字で入力してください'
     end
   end
 
   def destroy
-    shopping = Shopping.find(params[:id])
-    shopping.destroy!
-    redirect_to shoppings_path, notice: '削除できました'
+    @shopping = Shopping.find(params[:id])
+    @shopping.destroy!
   end
 
   private

@@ -1,1 +1,2 @@
-$('#check_#{@shopping.id}').html("#{escape_javascript(render 'checks/check', shopping: @shopping)}");
+$('#check_#{@shopping.id}').html("#{j(render 'checks/check', shopping: @shopping)}");
+$('#line_#{@shopping.id}').addClass('linethrough');

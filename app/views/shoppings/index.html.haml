@@ -1,10 +1,4 @@
 .container
+  = render 'form', value: '投稿'
   - @shoppings.each do |shopping|
-    .card
-      .asa
-        = render 'checks/check', shopping: shopping
-      .card_namea
-        = shopping.name
-        .a
-          = button_to shopping_path(shopping), {method: 'delete'} do
-            %i.fa.fa-trash 削除
+    = render 'shopping', shopping: shopping

@@ -1,0 +1,9 @@
+.card{id: "#{shopping.id}"}
+  .check
+    = render 'checks/check', shopping: shopping
+  .shopping_name{id: "line_#{shopping.id}"}
+    = shopping.name
+    .delete_btn
+      = button_to shopping_path(shopping), {method: 'delete', remote: true} do
+        %i.fa.fa-trash 
+          削除
