@@ -1,6 +1,6 @@
 .card {
   background-color: white;
-  padding: 5px 0;
+  padding: 3px 0;
   display: flex;
   border-bottom: 2px dashed black;
 
@@ -48,9 +48,7 @@
   }
 }
 
-
-
-.card_imagea {
+.box {
   height: 40px;
   width: 40px;
   margin-top: 5px;
@@ -62,18 +60,19 @@
   }
 }
 
-.card_namea {
+.shopping_name {
   display: flex;
   font-size: 20px;
-  width: 100%;
   padding: 8px 0;
+  margin-right: 200px;
+  overflow: auto;
 
-  .a {
+  .delete_btn {
     position: absolute;
-    right: 3%;
+    right: 10px;
   }
 }
 
-.textdecoration_linethrough {
+.linethrough {
   text-decoration: line-through;
 }

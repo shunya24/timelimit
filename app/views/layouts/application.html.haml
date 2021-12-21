@@ -44,7 +44,7 @@
               %div
                 投稿
         - elsif params[:controller] == "shoppings"
-          = link_to new_shopping_path do
+          = link_to new_shopping_path, remote: true do
             %i.fa.fa-plus.color
               %div
                 投稿
