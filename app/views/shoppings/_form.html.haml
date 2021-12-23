@@ -1,7 +1,5 @@
+.space.hidden
 .form.hidden#form
   = form_with(model: Shopping.new ) do |f|
-    %div
-      = f.label :name, '商品名'
-    %div
-      = f.text_field :name
-      = f.submit '保存'
+    = f.text_field :name, placeholder: '商品名'
+    = f.submit '保存'

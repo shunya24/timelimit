@@ -19,7 +19,7 @@
   .share_list
     共有しているユーザー
     - @user.each do |user|
-      = link_to account_path(@results.first.user) do
+      = link_to account_path(user) do
         .profile_user
           .profile_user_image
             = image_tag user.profile.avatar_url || 'user.png'
