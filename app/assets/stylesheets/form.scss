@@ -19,3 +19,16 @@ input, select {
     border: 1px solid #EBEBEB;
   }
 }
+
+.form {
+  position: fixed;
+  padding: 5px 0 5px 5px;
+  background-color: whitesmoke;
+  top: 80px;
+  left: 0;
+  z-index: 1;
+}
+
+.space {
+  padding-bottom: 36px;
+}

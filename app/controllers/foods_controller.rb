@@ -43,6 +43,13 @@ class FoodsController < ApplicationController
     redirect_to root_path, notice: '削除できました'
   end
 
+  def destroy_all
+    selects = current_user.selects.pluck(:food_id)
+    foods = Food.where(id: selects)
+    foods.destroy_all
+    redirect_to root_path, notice: '削除できました'
+  end
+
   private
   def food_params
     params.require(:food).permit(:image, :name, :content, :management, :limit, :count)

@@ -12,7 +12,7 @@ class ShoppingsController < ApplicationController
     @shopping = current_user.shoppings.build(shopping_params)
     if @shopping.save
     else
-      redirect_to shoppings_path(@shopping), notice: '１文字から１１文字で入力してください'
+      redirect_to shoppings_path(@shopping), notice: '1文字から30文字で入力してください'
     end
   end
 

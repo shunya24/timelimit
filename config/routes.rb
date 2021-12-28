@@ -5,9 +5,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'foods#index'
 
-  resources :foods, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :foods, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+      delete 'destroy_all'
+    end
+    
+    resource :select, only: [:create, :destroy, :new]
+  end
+  
   resources :shoppings, only: [:index, :new, :create, :destroy] do
-
     resource :check, only: [:create, :destroy]
   end
 
