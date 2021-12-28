@@ -8,7 +8,9 @@ class User < ApplicationRecord
   has_many :shoppings, dependent: :destroy
   has_many :checks, dependent: :destroy
   has_many :check_shoppings, through: :checks, source: :shopping
+  has_many :selects, dependent: :destroy
   has_one :profile, dependent: :destroy
+
 
 
   has_many :following_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
@@ -19,6 +21,10 @@ class User < ApplicationRecord
 
   def has_check?(shopping)
     checks.exists?(shopping_id: shopping.id)
+  end
+
+  def has_select?(food)
+    selects.exists?(food_id: food.id)
   end
 
   def follow!(user)

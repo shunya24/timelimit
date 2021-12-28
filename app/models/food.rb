@@ -4,6 +4,7 @@ class Food < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :user
+  has_many :selects, dependent: :destroy
 
   enum management: {賞味期限:1, 消費期限:2, 管理しない:3}
   def limit_day
