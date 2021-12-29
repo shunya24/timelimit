@@ -46,8 +46,12 @@ class FoodsController < ApplicationController
   def destroy_all
     selects = current_user.selects.pluck(:food_id)
     foods = Food.where(id: selects)
-    foods.destroy_all
-    redirect_to root_path, notice: '削除できました'
+    if foods.exists?
+      foods.destroy_all
+      redirect_to root_path, notice: '削除できました'
+    else
+      redirect_to root_path, notice: '１つ以上選択してください'
+    end
   end
 
   private
