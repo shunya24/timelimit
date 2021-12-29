@@ -16,3 +16,11 @@ require("jquery")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import $ from 'jquery'
+
+document.addEventListener('turbolinks:load', () => {
+  $('.fa-trash-o').on('click', () => {
+    $('.select').removeClass('hidden');
+    $('.case').removeClass('hidden');
+  })
+})

@@ -1,0 +1,8 @@
+- if current_user.has_select?(food)
+  .box{id: "check_#{food.id}"}
+    = link_to food_select_path(food), data: {method: 'delete', remote: true} do
+      = image_tag 'checkbox.png'
+- else
+  .box{id: "check_#{food.id}"}
+    = link_to food_select_path(food), data: {method: 'post', remote: true} do
+      = image_tag 'box.png'

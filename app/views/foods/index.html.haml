@@ -1,7 +1,7 @@
 .container
   - @foods.each do |food|
     = link_to edit_food_path(food) do
-      .card
+      .card{id: "select_#{food.id}"}
         .card_image
           - if food.image?
             = image_tag food.image_url
@@ -17,3 +17,9 @@
             = food.deadline
           .card_count
             = food.count
+    .select.hidden
+      = render 'selects/select', food: food
+  .case.hidden
+    .item
+      = link_to 'まとめて削除', destroy_all_foods_path, data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
+      = link_to '閉じる', root_path
