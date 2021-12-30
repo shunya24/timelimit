@@ -22,5 +22,7 @@ document.addEventListener('turbolinks:load', () => {
   $('.fa-trash-o').on('click', () => {
     $('.select').removeClass('hidden');
     $('.case').removeClass('hidden');
+    $('.delete_btn').removeClass('hidden')
+    $('.shopping_name').addClass('margin-right')
   })
 })
