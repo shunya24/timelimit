@@ -50,6 +50,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:avatar, :nickname, :my_id)
+    params.require(:profile).permit(:avatar, :nickname, :my_id, :remove_avatar)
   end
 end

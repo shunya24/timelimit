@@ -57,7 +57,7 @@ class FoodsController < ApplicationController
 
   private
   def food_params
-    params.require(:food).permit(:image, :name, :content, :management, :limit, :count)
+    params.require(:food).permit(:image, :name, :content, :management, :limit, :count, :remove_image)
   end
 
   def set_food

@@ -7,25 +7,31 @@
       = f.label :avatar, '画像'
     %div
       = f.file_field :avatar, id: :avatar_img
-    - if @profile.avatar.present?
-      = image_tag @profile.avatar_url, id: :preview
-    - else
-      = image_tag 'user.png', id: :preview
-    :javascript
-      $(function() {
-       function readURL(input) {
-         if (input.files && input.files[0]) {
-           var reader = new FileReader();
-           reader.onload = function (e) {
-             $('#preview').attr('src', e.target.result);
-           }
-           reader.readAsDataURL(input.files[0]);
-         }
-       }
-       $("#avatar_img").change(function(){
-         readURL(this);
-       });
-      });
+    .preview
+      - if @profile.avatar.present?
+        = image_tag @profile.avatar_url, id: :preview
+      - else
+        = image_tag 'user.png', id: :preview, class: :hidden
+      :javascript
+        $(function() {
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+          $('#preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+          }
+          $("#avatar_img").change(function(){
+            readURL(this);
+            $('#preview').removeClass('hidden');
+          });
+        });
+    %div
+      - if @profile.avatar.present?
+        = f.label :remove_avatar, '画像を削除する'
+        = f.check_box :remove_avatar
     %div
       = f.label :nickname, '名前'
     %div

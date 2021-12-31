@@ -7,25 +7,31 @@
       = f.label :image, '画像'
     %div
       = f.file_field :image, id: :food_img
-    - if @food.image.present?
-      = image_tag food.image_url, id: :img_preview
-    - else
-      = image_tag "no_food.png", id: :img_preview
-    :javascript
-      $(function() {
-       function readURL(input) {
-         if (input.files && input.files[0]) {
-           var reader = new FileReader();
-           reader.onload = function (e) {
-             $('#img_preview').attr('src', e.target.result);
-           }
-           reader.readAsDataURL(input.files[0]);
-         }
-       }
-       $("#food_img").change(function(){
-         readURL(this);
-       });
-      });
+    .preview
+      - if @food.image.present?
+        = image_tag food.image_url, id: :img_preview
+      - else
+        = image_tag 'no_food.png', id: :img_preview, class: :hidden
+      :javascript
+        $(function() {
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+          $('#img_preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+          }
+          $("#food_img").change(function(){
+            readURL(this);
+            $('#img_preview').removeClass('hidden');
+          });
+        });
+    %div
+      - if @food.image.present?
+        = f.label :remove_image, '画像を削除する'
+        = f.check_box :remove_image
     %div
       = f.label :name, '食材名'
     %div
