@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:edit, :update]
   before_action :authenticate_user!
+  protect_from_forgery with: :exception, only: :create
 
   def index
     followings = current_user.followings.pluck(:id)
