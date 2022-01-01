@@ -6,12 +6,12 @@
     %div
       = f.label :avatar, '画像'
     %div
-      = f.file_field :avatar, id: :avatar_img
+      = f.file_field :avatar, id: 'avatar_img'
     .preview
       - if @profile.avatar.present?
-        = image_tag @profile.avatar_url, id: :preview
+        = image_tag @profile.avatar_url, id: 'preview'
       - else
-        = image_tag 'user.png', id: :preview, class: :hidden
+        = image_tag 'user.png', id: 'preview', class: 'hidden'
       :javascript
         $(function() {
           function readURL(input) {
@@ -35,7 +35,7 @@
     %div
       = f.label :nickname, '名前'
     %div
-      = f.text_field :nickname, class: 'text'
+      = f.text_field :nickname
     %div
       = f.label :my_id, 'ID'
     %div
@@ -43,5 +43,5 @@
     %div.notes
       ※半角の数字で入力してください
     %div.notes
-      ※一桁目は１〜９で入力してください
+      ※一桁目は０以外で入力してください
     = f.submit '保存'

@@ -31,7 +31,9 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    if params[:q][:'my_id_eq'] == ""
+    if params[:q][:'my_id_eq'].length > 10
+      redirect_to profile_path, notice: "10桁までで入力してください"
+    elsif params[:q][:'my_id_eq'] == ""
       redirect_to profile_path, notice: "検索キーワードがありません。"
     elsif params[:q][:'my_id_eq'].to_i == current_user.profile.my_id
       redirect_to profile_path
