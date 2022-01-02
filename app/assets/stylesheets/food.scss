@@ -64,13 +64,16 @@
   display: flex;
   font-size: 20px;
   padding: 8px 0;
-  margin-right: 70px;
   overflow: auto;
 
   .delete_btn {
     position: absolute;
     right: 10px;
   }
+}
+
+.margin-right {
+  margin-right: 70px;
 }
 
 .linethrough {
@@ -114,4 +117,10 @@
       padding: 10px;
     }
   }
+}
+
+.preview img{
+  height: 200px;
+  width: 200px;
+  margin-top: 10px;
 }

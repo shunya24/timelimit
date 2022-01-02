@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: [:edit, :update]
   before_action :authenticate_user!
+  protect_from_forgery with: :exception, only: :create
 
   def index
     followings = current_user.followings.pluck(:id)
@@ -56,7 +57,7 @@ class FoodsController < ApplicationController
 
   private
   def food_params
-    params.require(:food).permit(:image, :name, :content, :management, :limit, :count)
+    params.require(:food).permit(:image, :name, :content, :management, :limit, :count, :remove_image)
   end
 
   def set_food

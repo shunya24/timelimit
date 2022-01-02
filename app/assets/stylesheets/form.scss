@@ -11,15 +11,6 @@
   opacity: 1;
 }
 
-input, select {
-  &.text {
-    width: 100%;
-    margin: 8px 0px;
-    padding: 16px 24px;
-    border: 1px solid #EBEBEB;
-  }
-}
-
 .form {
   position: fixed;
   padding: 5px 0 5px 5px;
@@ -31,4 +22,12 @@ input, select {
 
 .space {
   padding-bottom: 36px;
+}
+
+.submit {
+  margin: 10px 0;
+}
+
+.delete_btn {
+  margin-bottom: 10px;
 }

@@ -6,7 +6,32 @@
     %div
       = f.label :image, '画像'
     %div
-      = f.file_field :image
+      = f.file_field :image, id: 'food_img'
+    .preview
+      - if @food.image.present?
+        = image_tag food.image_url, id: 'img_preview'
+      - else
+        = image_tag 'no_food.png', id: 'img_preview', class: 'hidden'
+      :javascript
+        $(function() {
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+          $('#img_preview').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+          }
+          $("#food_img").change(function(){
+            readURL(this);
+            $('#img_preview').removeClass('hidden');
+          });
+        });
+    %div
+      - if @food.image.present?
+        = f.label :remove_image, '画像を削除する'
+        = f.check_box :remove_image
     %div
       = f.label :name, '食材名'
     %div
@@ -23,11 +48,13 @@
       %div
         = f.radio_button :management, :管理しない, {id: '3'}
         = f.label '管理しない', {for: '3'}
-
       %div.hidden_show
         = f.date_select :limit, {use_month_numbers: true}
     %div
       = f.label :count, '数'
     %div
       = f.number_field :count, {min: 1, max: 9999}
-    = f.submit '保存'
+    = f.submit '保存', class: 'submit'
+    %div.delete_btn
+      - if params[:action] == "edit"
+        = button_to "削除する", food_path(@food), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
