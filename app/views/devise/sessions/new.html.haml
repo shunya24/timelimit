@@ -1,19 +1,26 @@
 .container
-  %h2 ログイン
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text'
-    .field
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "current-password"
-    - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions
-      = f.submit "Log in", class: 'btn'
-  = render "devise/shared/links"
-  = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post
+  .form_wrapper
+    %h1 ログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form_item
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text'
+      .form_item
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "current-password"
+      - if devise_mapping.rememberable?
+        .remember
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .button_panel
+        = f.submit "ログイン", class: 'button'
+      .line
+      = link_to  users_guest_sign_in_path, method: :post do
+        .guest_login
+          ゲストログイン
+      .line
+      = link_to  new_registration_path(resource_name) do
+        .signup
+          アカウント登録
