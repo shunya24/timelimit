@@ -51,9 +51,9 @@
       %div.hidden_show
         = f.date_select :limit, {use_month_numbers: true}
     %div
-      = f.label :count, '数'
+      = f.label :count, '数量'
     %div
-      = f.number_field :count, {min: 1, max: 9999}
+      = f.number_field :count, {min: 0, max: 9999, value: 1}
     = f.submit '保存', class: 'submit'
     %div.delete_btn
       - if params[:action] == "edit"
