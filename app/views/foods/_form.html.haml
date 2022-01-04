@@ -1,60 +1,61 @@
 .container
-  %ul
-    - @food.errors.full_messages.each do |message|
-      %li= message
-  = form_with(model: @food, local: true) do |f|
-    %div
-      = f.label :image, '画像'
-    %div
-      = f.file_field :image, id: 'food_img'
-    .preview
-      - if @food.image.present?
-        = image_tag food.image_url, id: 'img_preview'
-      - else
-        = image_tag 'no_food.png', id: 'img_preview', class: 'hidden'
-      :javascript
-        $(function() {
-          function readURL(input) {
-            if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-          $('#img_preview').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-            }
-          }
-          $("#food_img").change(function(){
-            readURL(this);
-            $('#img_preview').removeClass('hidden');
-          });
-        });
-    %div
-      - if @food.image.present?
-        = f.label :remove_image, '画像を削除する'
-        = f.check_box :remove_image
-    %div
-      = f.label :name, '食材名'
-    %div
-      = f.text_field :name
-    %div
-      = f.label :content, 'メモ'
-    %div
-      = f.text_area :content
-    %div.hidden_box
-      = f.radio_button :management, :賞味期限, {id: '1', checked: "checked"}
-      = f.label '賞味期限', {for: '1'}
-      = f.radio_button :management, :消費期限, {id: '2'}
-      = f.label '消費期限', {for: '2'}
+  .form_wrapper
+    %ul
+      - @food.errors.full_messages.each do |message|
+        %li= message
+    = form_with(model: @food, local: true) do |f|
       %div
-        = f.radio_button :management, :管理しない, {id: '3'}
-        = f.label '管理しない', {for: '3'}
-      %div.hidden_show
-        = f.date_select :limit, {use_month_numbers: true}
-    %div
-      = f.label :count, '数量'
-    %div
-      = f.number_field :count, {min: 0, max: 9999, value: 1}
-    = f.submit '保存', class: 'submit'
-    %div.delete_btn
-      - if params[:action] == "edit"
-        = button_to "削除する", food_path(@food), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
+        = f.label :image, '画像'
+      %div
+        = f.file_field :image, id: 'food_img'
+      .preview
+        - if @food.image.present?
+          = image_tag food.image_url, id: 'img_preview'
+        - else
+          = image_tag 'no_food.png', id: 'img_preview', class: 'hidden'
+        :javascript
+          $(function() {
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+            $('#img_preview').attr('src', e.target.result);
+              }
+              reader.readAsDataURL(input.files[0]);
+              }
+            }
+            $("#food_img").change(function(){
+              readURL(this);
+              $('#img_preview').removeClass('hidden');
+            });
+          });
+      %div
+        - if @food.image.present?
+          = f.label :remove_image, '画像を削除する'
+          = f.check_box :remove_image
+      %div
+        = f.label :name, '食材名'
+      %div
+        = f.text_field :name
+      %div
+        = f.label :content, 'メモ'
+      %div
+        = f.text_area :content
+      %div.hidden_box
+        = f.radio_button :management, :賞味期限, {id: '1', checked: "checked"}
+        = f.label '賞味期限', {for: '1'}
+        = f.radio_button :management, :消費期限, {id: '2'}
+        = f.label '消費期限', {for: '2'}
+        %div
+          = f.radio_button :management, :管理しない, {id: '3'}
+          = f.label '管理しない', {for: '3'}
+        %div.hidden_show
+          = f.date_select :limit, {use_month_numbers: true}
+      %div
+        = f.label :count, '数量'
+      %div
+        = f.number_field :count, {min: 0, max: 9999, value: 1}
+      = f.submit '保存', class: 'submit'
+      %div.delete_btn
+        - if params[:action] == "edit"
+          = button_to "削除する", food_path(@food), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}

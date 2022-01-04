@@ -1,32 +1,33 @@
 .container.profile
-  .profile_user
-    .profile_user_image
-      = image_tag @profile.avatar_url || 'user.png'
-    .profile_user_basicInfo
-      .profile_user_name
-        .name
-          = @profile&.nickname
-        .profile_user_actionButton
-          = link_to '変更', edit_profile_path
-      .profile_user_id
-        ID
-        = @profile&.my_id
-  .search_user
-    ユーザー検索
-    = search_form_for @q, url: search_profile_path do |f|
-      = f.number_field :my_id_eq
-      = f.submit "検索"
-  .share_list
-    共有しているユーザー
-    - @user.each do |user|
-      = link_to account_path(user) do
-        .profile_user
-          .profile_user_image
-            = image_tag user.profile.avatar_url || 'user.png'
-          .profile_user_basicInfo
-            .profile_user_name
-              .name
-                = user.profile.nickname
-            .profile_user_id
-              ID
-              = user.profile.my_id
+  .form_wrapper
+    .profile_user
+      .profile_user_image
+        = image_tag @profile.avatar_url || 'user.png'
+      .profile_user_basicInfo
+        .profile_user_name
+          .name
+            = @profile&.nickname
+          .profile_user_actionButton
+            = link_to '変更', edit_profile_path
+        .profile_user_id
+          ID
+          = @profile&.my_id
+    .search_user
+      ユーザー検索
+      = search_form_for @q, url: search_profile_path do |f|
+        = f.number_field :my_id_eq
+        = f.submit "検索"
+    .share_list
+      共有しているユーザー
+      - @user.each do |user|
+        = link_to account_path(user) do
+          .profile_user
+            .profile_user_image
+              = image_tag user.profile.avatar_url || 'user.png'
+            .profile_user_basicInfo
+              .profile_user_name
+                .name
+                  = user.profile.nickname
+              .profile_user_id
+                ID
+                = user.profile.my_id
