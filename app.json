@@ -1,0 +1,16 @@
+{
+  "name": "time limit",
+  "description": "This is timelimit",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/shunya24/timelimit.git",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
