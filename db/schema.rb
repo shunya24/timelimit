@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_12_26_101549) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "checks", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "shopping_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "shopping_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shopping_id"], name: "index_checks_on_shopping_id"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_12_26_101549) do
   end
 
   create_table "foods", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "image"
     t.string "name", null: false
     t.text "content"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_12_26_101549) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "avatar"
     t.string "nickname"
     t.integer "my_id"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_12_26_101549) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "following_id", null: false
-    t.integer "follower_id", null: false
+    t.bigint "following_id", null: false
+    t.bigint "follower_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 2021_12_26_101549) do
   end
 
   create_table "selects", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "food_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "food_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["food_id"], name: "index_selects_on_food_id"
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 2021_12_26_101549) do
   end
 
   create_table "shoppings", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
