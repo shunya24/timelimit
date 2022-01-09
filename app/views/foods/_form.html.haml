@@ -56,6 +56,3 @@
       %div
         = f.number_field :count, {min: 0, max: 9999, value: 1}
       = f.submit '保存', class: 'submit'
-      %div.delete_btn
-        - if params[:action] == "edit"
-          = button_to "削除する", food_path(@food), data: {method: 'delete', confirm: '本当に削除してもよろしいですか？'}
