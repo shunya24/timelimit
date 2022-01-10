@@ -8,6 +8,6 @@
     - else
       = shopping.name
     .delete_btn.hidden
-      = button_to shopping_path(shopping), {method: 'delete', remote: true} do
+      = link_to shopping_path(shopping), {method: 'delete', remote: true, class: } do
         %i.fa.fa-trash 
           削除
