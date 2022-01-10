@@ -1,13 +1,15 @@
-.card{id: "#{shopping.id}"}
-  .check
-    = render 'checks/check', shopping: shopping
-  .shopping_name{id: "line_#{shopping.id}"}
-    - if current_user.has_check?(shopping)
-      .linethrough{id: "line2_#{shopping.id}"}
-        = shopping.name
-    - else
-      = shopping.name
-    .delete_btn.hidden
+.id{id: "#{shopping.id}"}
+  .delete_btn.hidden
+    .position
       = link_to shopping_path(shopping), data: {method: 'delete', remote: true} do
         %i.fa.fa-trash 
           削除
+  .card
+    .check
+      = render 'checks/check', shopping: shopping
+    .shopping_name{id: "line_#{shopping.id}"}
+      - if current_user.has_check?(shopping)
+        .linethrough{id: "line2_#{shopping.id}"}
+          = shopping.name
+      - else
+        = shopping.name

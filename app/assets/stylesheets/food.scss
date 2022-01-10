@@ -65,10 +65,20 @@
   font-size: 20px;
   padding: 8px 0;
   overflow: auto;
+}
 
-  .delete_btn {
-    position: absolute;
+.delete_btn {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+
+  .position {
+    position: relative;
+    padding: 0 3px;
+    top: 10px;
     right: 10px;
+    border: 1px solid black;
   }
 }
 
