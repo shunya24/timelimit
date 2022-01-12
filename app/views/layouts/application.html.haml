@@ -23,6 +23,7 @@
       .flash
         - flash.each do |key, value|
           %div{:class => key}= value
+    = yield
     %footer.footer
       %ul
         = link_to root_path do
@@ -50,5 +51,4 @@
           %i.fa.fa-plus.color
             %div
               投稿
-    = yield
 
